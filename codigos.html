@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Códigos em Python</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+pre {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+h2 {
+    color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📚 Códigos em Python</h1>
+
+<h2>Maior e Menor Valor</h2>
+<pre>
+"""Maior e menor valor"""
+
+valores = []
+
+for i in range(10):
+    num = float(input(f"Digite o {i+1}º valor: "))
+    valores.append(num)
+
+maior = max(valores)
+menor = min(valores)
+
+print("Maior valor:", maior)
+print("Menor valor:", menor)
+</pre>
+
+<h2>Lista Ordenada (sem sort)</h2>
+<pre>
+"""Desafio"""
+
+valores = []
+
+for i in range(10):
+    num = float(input(f"Digite o {i+1}º valor: "))
+
+    if len(valores) == 0:
+        valores.append(num)
+    else:
+        inserido = False
+
+        for j in range(len(valores)):
+            if num < valores[j]:
+                valores.insert(j, num)
+                inserido = True
+                break
+
+        if not inserido:
+            valores.append(num)
+
+print("Lista ordenada:", valores)
+</pre>
+
+<br>
+<a href="index.html" style="color:#22c55e;">← Voltar</a>
+
+</body>
+</html>
