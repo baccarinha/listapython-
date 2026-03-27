@@ -29,6 +29,149 @@ h2 {
 
 <h1>📚 Códigos em Python</h1>
 
+<h2>Calculadora Simples</h2>
+<pre>
+"""Calculadora simples"""
+
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+
+soma = num1 + num2
+subtracao = num1 - num2
+multiplicacao = num1 * num2
+
+if num2 != 0:
+    divisao = num1 / num2
+else:
+    divisao = "Não é possível dividir por zero"
+
+print("Soma:", soma)
+print("Subtração:", subtracao)
+print("Multiplicação:", multiplicacao)
+print("Divisão:", divisao)
+</pre>
+
+<h2>Par ou Ímpar</h2>
+<pre>
+"""Par ou ímpar"""
+
+numero = int(input("Digite um número: "))
+
+if numero % 2 == 0:
+    print("O número é PAR")
+else:
+    print("O número é ÍMPAR")
+</pre>
+
+<h2>Conversor de Temperatura</h2>
+<pre>
+"""Conversor de temperatura"""
+
+celsius = float(input("Digite a temperatura em Celsius: "))
+fahrenheit = (celsius * 9/5) + 32
+
+print("Temperatura em Fahrenheit:", fahrenheit)
+</pre>
+
+<h2>Idade em Dias</h2>
+<pre>
+"""Idade em dias"""
+
+idade = int(input("Digite sua idade em anos: "))
+dias = idade * 365
+
+print("Sua idade em dias é:", dias)
+</pre>
+
+<h2>Área de Figuras</h2>
+<pre>
+"""Área de figuras"""
+
+base = float(input("Digite a base do retângulo: "))
+altura = float(input("Digite a altura do retângulo: "))
+area_retangulo = base * altura
+
+raio = float(input("Digite o raio do círculo: "))
+pi = 3.14
+area_circulo = pi * (raio ** 2)
+
+print("Área do retângulo:", area_retangulo)
+print("Área do círculo:", area_circulo)
+</pre>
+
+<h2>Contagem Regressiva</h2>
+<pre>
+"""Contagem regressiva"""
+
+for i in range(10, -1, -1):
+    print(i)
+</pre>
+
+<h2>Tabuada</h2>
+<pre>
+"""Tabuada"""
+
+numero = int(input("Digite um número: "))
+
+for i in range(1, 11):
+    print(f"{numero} x {i} = {numero * i}")
+</pre>
+
+<h2>Soma de Números</h2>
+<pre>
+"""Soma de números"""
+
+soma = 0
+
+while True:
+    numero = float(input("Digite um número (0 para parar): "))
+    
+    if numero == 0:
+        break
+    
+    soma += numero
+
+print("Soma total:", soma)
+</pre>
+
+<h2>Número Primo</h2>
+<pre>
+"""Número primo"""
+
+numero = int(input("Digite um número: "))
+
+if numero <= 1:
+    print("Não é primo")
+else:
+    primo = True
+    for i in range(2, numero):
+        if numero % i == 0:
+            primo = False
+            break
+
+    if primo:
+        print("É primo")
+    else:
+        print("Não é primo")
+</pre>
+
+<h2>Fatorial</h2>
+<pre>
+"""Fatorial"""
+
+numero = int(input("Digite um número: "))
+
+fatorial = 1
+
+if numero < 0:
+    print("Não existe fatorial de número negativo")
+else:
+    for i in range(1, numero + 1):
+        fatorial *= i
+    
+    print("Fatorial:", fatorial)
+</pre>
+
 <h2>Maior e Menor Valor</h2>
 <pre>
 """Maior e menor valor"""
