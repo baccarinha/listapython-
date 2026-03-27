@@ -135,6 +135,53 @@ function fatorial() {
     document.getElementById("resFatorial").innerText = fat;
 }
 
+    // Maior e menor valor
+function maiorMenor() {
+    let valores = [];
+
+    for (let i = 0; i < 10; i++) {
+        let num = Number(prompt(`Digite o ${i+1}º valor:`));
+        valores.push(num);
+    }
+
+    let maior = Math.max(...valores);
+    let menor = Math.min(...valores);
+
+    document.getElementById("resMaiorMenor").innerHTML =
+        `Maior valor: ${maior} <br> Menor valor: ${menor}`;
+}
+
+
+// Lista ordenada sem sort
+function ordenarLista() {
+    let valores = [];
+
+    for (let i = 0; i < 10; i++) {
+        let num = Number(prompt(`Digite o ${i+1}º valor:`));
+
+        if (valores.length === 0) {
+            valores.push(num);
+        } else {
+            let inserido = false;
+
+            for (let j = 0; j < valores.length; j++) {
+                if (num < valores[j]) {
+                    valores.splice(j, 0, num);
+                    inserido = true;
+                    break;
+                }
+            }
+
+            if (!inserido) {
+                valores.push(num);
+            }
+        }
+    }
+
+    document.getElementById("resOrdenado").innerText =
+        "Lista ordenada: " + valores.join(", ");
+}
+
 </script>
 
 </body>
