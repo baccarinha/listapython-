@@ -81,14 +81,16 @@ input {
         <div class="resultado" id="resFatorial"></div>
     </div>
 
-    <div class="card">
+   <div class="card">
     <h3>Maior e Menor Valor</h3>
+    <input id="lista1" placeholder="Digite 10 números separados por vírgula">
     <button onclick="maiorMenor()">Executar</button>
     <div class="resultado" id="resMaiorMenor"></div>
 </div>
 
 <div class="card">
     <h3>Lista Ordenada (sem sort)</h3>
+    <input id="lista2" placeholder="Digite 10 números separados por vírgula">
     <button onclick="ordenarLista()">Executar</button>
     <div class="resultado" id="resOrdenado"></div>
 </div>
@@ -135,30 +137,37 @@ function fatorial() {
     document.getElementById("resFatorial").innerText = fat;
 }
 
-    // Maior e menor valor
+// Maior e menor valor
 function maiorMenor() {
-    let valores = [];
+    let entrada = document.getElementById("lista1").value;
+    let valores = entrada.split(",").map(Number);
 
-    for (let i = 0; i < 10; i++) {
-        let num = Number(prompt(`Digite o ${i+1}º valor:`));
-        valores.push(num);
+    if (valores.length !== 10) {
+        document.getElementById("resMaiorMenor").innerText = "Digite exatamente 10 números!";
+        return;
     }
 
     let maior = Math.max(...valores);
     let menor = Math.min(...valores);
 
     document.getElementById("resMaiorMenor").innerHTML =
-        `Maior valor: ${maior} <br> Menor valor: ${menor}`;
+        `Maior: ${maior} <br> Menor: ${menor}`;
 }
 
 
-// Lista ordenada sem sort
+// Ordenar sem sort
 function ordenarLista() {
+    let entrada = document.getElementById("lista2").value;
+    let numeros = entrada.split(",").map(Number);
+
+    if (numeros.length !== 10) {
+        document.getElementById("resOrdenado").innerText = "Digite exatamente 10 números!";
+        return;
+    }
+
     let valores = [];
 
-    for (let i = 0; i < 10; i++) {
-        let num = Number(prompt(`Digite o ${i+1}º valor:`));
-
+    for (let num of numeros) {
         if (valores.length === 0) {
             valores.push(num);
         } else {
@@ -179,7 +188,7 @@ function ordenarLista() {
     }
 
     document.getElementById("resOrdenado").innerText =
-        "Lista ordenada: " + valores.join(", ");
+        "Ordenado: " + valores.join(", ");
 }
 
 </script>
