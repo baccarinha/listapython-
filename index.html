@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Prática de Python</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+button {
+    background: #22c55e;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+}
+
+.resultado {
+    margin-top: 10px;
+    color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💻 Exercícios de Programação</h1>
+
+    <!-- Par ou Ímpar -->
+    <div class="card">
+        <h3>Par ou Ímpar</h3>
+        <input id="parNumero" placeholder="Digite um número">
+        <button onclick="parImpar()">Executar</button>
+        <div class="resultado" id="resPar"></div>
+    </div>
+
+    <!-- Celsius para Fahrenheit -->
+    <div class="card">
+        <h3>Celsius → Fahrenheit</h3>
+        <input id="celsius" placeholder="Digite °C">
+        <button onclick="converterTemp()">Executar</button>
+        <div class="resultado" id="resTemp"></div>
+    </div>
+
+    <!-- Tabuada -->
+    <div class="card">
+        <h3>Tabuada</h3>
+        <input id="tabuadaNum" placeholder="Número">
+        <button onclick="tabuada()">Executar</button>
+        <div class="resultado" id="resTabuada"></div>
+    </div>
+
+    <!-- Fatorial -->
+    <div class="card">
+        <h3>Fatorial</h3>
+        <input id="fatorialNum" placeholder="Número">
+        <button onclick="fatorial()">Executar</button>
+        <div class="resultado" id="resFatorial"></div>
+    </div>
+
+</div>
+
+<script>
+
+// Par ou ímpar
+function parImpar() {
+    let num = Number(document.getElementById("parNumero").value);
+    let res = (num % 2 === 0) ? "PAR" : "ÍMPAR";
+    document.getElementById("resPar").innerText = res;
+}
+
+// Celsius → Fahrenheit
+function converterTemp() {
+    let c = Number(document.getElementById("celsius").value);
+    let f = (c * 9/5) + 32;
+    document.getElementById("resTemp").innerText = f + " °F";
+}
+
+// Tabuada
+function tabuada() {
+    let num = Number(document.getElementById("tabuadaNum").value);
+    let resultado = "";
+
+    for (let i = 1; i <= 10; i++) {
+        resultado += `${num} x ${i} = ${num * i}<br>`;
+    }
+
+    document.getElementById("resTabuada").innerHTML = resultado;
+}
+
+// Fatorial
+function fatorial() {
+    let num = Number(document.getElementById("fatorialNum").value);
+    let fat = 1;
+
+    for (let i = 1; i <= num; i++) {
+        fat *= i;
+    }
+
+    document.getElementById("resFatorial").innerText = fat;
+}
+
+</script>
+
+</body>
+</html>
