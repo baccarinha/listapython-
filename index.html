@@ -81,16 +81,26 @@ input {
         <div class="resultado" id="resFatorial"></div>
     </div>
 
-   <div class="card">
+<div class="card">
     <h3>Maior e Menor Valor</h3>
-    <input id="lista1" placeholder="Digite 10 números separados por vírgula">
+
+    <div id="inputs1">
+        <input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
+        <input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
+    </div>
+
     <button onclick="maiorMenor()">Executar</button>
     <div class="resultado" id="resMaiorMenor"></div>
 </div>
 
 <div class="card">
     <h3>Lista Ordenada (sem sort)</h3>
-    <input id="lista2" placeholder="Digite 10 números separados por vírgula">
+
+    <div id="inputs2">
+        <input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
+        <input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
+    </div>
+
     <button onclick="ordenarLista()">Executar</button>
     <div class="resultado" id="resOrdenado"></div>
 </div>
@@ -137,13 +147,30 @@ function fatorial() {
     document.getElementById("resFatorial").innerText = fat;
 }
 
-// Maior e menor valor
-function maiorMenor() {
-    let entrada = document.getElementById("lista1").value;
-    let valores = entrada.split(",").map(Number);
+// Pegar valores dos inputs
+function pegarValores(containerId) {
+    let inputs = document.querySelectorAll(`#${containerId} input`);
+    let valores = [];
 
-    if (valores.length !== 10) {
-        document.getElementById("resMaiorMenor").innerText = "Digite exatamente 10 números!";
+    for (let input of inputs) {
+        let valor = Number(input.value);
+
+        if (input.value === "") {
+            return null;
+        }
+
+        valores.push(valor);
+    }
+
+    return valores;
+}
+
+// Maior e menor
+function maiorMenor() {
+    let valores = pegarValores("inputs1");
+
+    if (!valores) {
+        document.getElementById("resMaiorMenor").innerText = "Preencha todos os campos!";
         return;
     }
 
@@ -154,14 +181,12 @@ function maiorMenor() {
         `Maior: ${maior} <br> Menor: ${menor}`;
 }
 
-
 // Ordenar sem sort
 function ordenarLista() {
-    let entrada = document.getElementById("lista2").value;
-    let numeros = entrada.split(",").map(Number);
+    let numeros = pegarValores("inputs2");
 
-    if (numeros.length !== 10) {
-        document.getElementById("resOrdenado").innerText = "Digite exatamente 10 números!";
+    if (!numeros) {
+        document.getElementById("resOrdenado").innerText = "Preencha todos os campos!";
         return;
     }
 
@@ -190,7 +215,6 @@ function ordenarLista() {
     document.getElementById("resOrdenado").innerText =
         "Ordenado: " + valores.join(", ");
 }
-
 </script>
 
 </body>
